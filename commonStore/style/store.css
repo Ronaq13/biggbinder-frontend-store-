@@ -1,0 +1,57 @@
+.primary {
+    background: #F26132;
+}
+
+.accent {
+    background: #2b2b2b;
+}
+
+.warn {
+    background: #eaeaea;
+}
+
+a:hover {
+    color: #F26132;
+}
+
+
+/*Footer*/
+
+div.footer {
+    background-color: rgba(248, 249, 250, 1);
+    text-align: center;
+    padding: 3%;
+}
+
+div.footer .footer-details {
+    width: 70%;
+}
+
+div.footer .footer-box-container {
+    padding: 2% 4%;
+}
+
+div.footer .footer-box-container .footer-sub-field-title {
+    font-size: 1.2em;
+}
+
+div.footer .footer-box-container .footer-company-field-title {
+    font-size: 2em;
+}
+
+div.footer .footer-box-container .footer-company-field-title strong span {
+    font-size: 0.7em;
+}
+
+div.footer .keep-in-touch {
+    max-width: 33%;
+}
+
+
+/*Media Queries*/
+
+@media screen and (min-width:600px) and (max-width:959px) {
+    div.footer .keep-in-touch {
+        max-width: 40%;
+    }
+}

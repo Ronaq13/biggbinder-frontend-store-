@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html ng-app="app" ng-cloak>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="shortcut icon" href="dist/vendor/icons/biggbindericon.ico">
+    <link rel="stylesheet" type="text/css" href="dist/vendor/css/vendor.min.css">
+    <link rel="stylesheet" type="text/css" href="dist/store/css/store.min.css">
+</head>
+
+<body ng-class="overlayLoaderShow == 1 ? 'overlay-background' : ''">
+
+    <toaster-container></toaster-container>
+
+    <div layout="column" ng-cloak ng-controller="indexController">
+
+        <!-- Toolbar -->
+
+        <md-toolbar class="md-primary main-toolbar">
+            <div class="md-toolbar-tools">
+                <a ng-href="{{dashboardLink}}">
+                    <div class="toolbar-title">
+                        <img src="dist/vendor/icons/biggbindericon-white.ico" class="logo">
+                        <span class="black">store.</span>biggbinder<span class="grey">.com</span>
+                    </div>
+                </a>
+                <div flex></div>
+                <md-icon aria-label="cart" md-svg-icon="dist/vendor/icons/shopping-cart.svg"></md-icon> &nbsp; &nbsp;
+                <md-button hide-xs class="md-raised md-warn" ng-href="{{searchLink}}" ng-hide="hideSearchButton">Search</md-button>
+                <md-button hide-xs class="md-raised md-warn" ng-href="{{loginLink}}" ng-hide="hideLoginButton">Log In</md-button>
+                <md-button hide-xs class="md-raised md-accent" ng-href="{{signupLink}}" ng-hide="hideSignupButton">Sign Up</md-button>
+                <md-menu ng-controller="mdMenu" show-xs hide-gt-xs ng-hide="hideLoginButton || hideSignupButton">
+                    <md-button class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)" aria-label="login-signup-menu">
+                        <md-icon md-menu-origin md-svg-icon="dist/vendor/icons/menu.svg"></md-icon>
+                    </md-button>
+                    <md-menu-content width="2" class="md-menu">
+                        <md-menu-item>
+                            <md-button class="md-raised md-warn" ng-href="{{loginLink}}">Log In</md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button class="md-raised md-accent" ng-href="{{signupLink}}">Sign Up</md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </md-toolbar>
+
+        <!-- Toolbar end -->
+
+        <md-content flex class="ajaxLoader">
+
+
+            <div class="overlay" align="center" ng-show="overlayLoaderShow && !loaderShow">
+                <img src="dist/vendor/img/loader.gif">
+            </div>
+
+            <div align="center" class="loader" ng-show="loaderShow"><img src="dist/vendor/img/loader.gif"></div>
+
+            <!-- ng-view -->
+            <div ng-view class="page-content" ng-hide="loaderShow"></div>
+        </md-content>
+    </div>
+
+    <div ng-include="'commonStore/views/footer.html'"></div>
+
+    <!-- Vendor Scripts -->
+
+    <script type="text/javascript" src="dist/vendor/js/vendor.min.js"></script>
+    <!-- <script type="text/javascript" src="dist/store/html/store.min.js"></script> -->
+    <script type="text/javascript" src="dist/store/js/store.min.js"></script>
+
+</body>
+
+</html>
